@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | CrowdfundIt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">CrowdfundIt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="create-campaign.html">Start Campaign</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html">Admin</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <span class="me-3">Admin User</span>
+                    <button class="btn btn-outline-danger" type="button">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 d-md-block bg-light sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard" data-bs-toggle="tab">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#user-management" data-bs-toggle="tab">
+                                <i class="fas fa-users me-2"></i>User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#campaign-approval" data-bs-toggle="tab">
+                                <i class="fas fa-clipboard-check me-2"></i>Campaign Approval
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pledges" data-bs-toggle="tab">
+                                <i class="fas fa-hand-holding-usd me-2"></i>Pledges
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reports" data-bs-toggle="tab">
+                                <i class="fas fa-chart-bar me-2"></i>Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-10 col-md-9 ms-sm-auto px-md-4">
+                <div class="tab-content">
+                    <!-- Dashboard Tab -->
+                    <div class="tab-pane fade show active" id="dashboard">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Admin Dashboard</h1>
+                        </div>
+
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="card text-white bg-primary mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="card-title">Total Users</h5>
+                                                <h2 class="mb-0">124</h2>
+                                            </div>
+                                            <i class="fas fa-users fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-success mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="card-title">Active Campaigns</h5>
+                                                <h2 class="mb-0">42</h2>
+                                            </div>
+                                            <i class="fas fa-clipboard-list fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-warning mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="card-title">Pending Approval</h5>
+                                                <h2 class="mb-0">8</h2>
+                                            </div>
+                                            <i class="fas fa-clock fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card text-white bg-danger mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h5 class="card-title">Total Pledges</h5>
+                                                <h2 class="mb-0">$24,580</h2>
+                                            </div>
+                                            <i class="fas fa-dollar-sign fa-3x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">New campaign submitted</h6>
+                                            <small>10 minutes ago</small>
+                                        </div>
+                                        <p class="mb-1">"Eco-Friendly Water Bottle" by Green Innovations</p>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">User role changed</h6>
+                                            <small>1 hour ago</small>
+                                        </div>
+                                        <p class="mb-1">John Doe upgraded to Campaigner role</p>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1">Campaign approved</h6>
+                                            <small>3 hours ago</small>
+                                        </div>
+                                        <p class="mb-1">"Smart Home Controller" by Tech Innovators</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Management Tab -->
+                    <div class="tab-pane fade" id="user-management">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">User Management</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group me-2">
+                                    <button class="btn btn-sm btn-outline-secondary">Export</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Jane Doe</td>
+                                        <td>jane@example.com</td>
+                                        <td><span class="badge bg-primary">Campaigner</span></td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-danger me-1" title="Ban User">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Edit Role">
+                                                <i class="fas fa-user-cog"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>John Smith</td>
+                                        <td>john@example.com</td>
+                                        <td><span class="badge bg-info">Backer</span></td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-danger me-1" title="Ban User">
+                                                <i class="fas fa-ban"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-primary" title="Edit Role">
+                                                <i class="fas fa-user-cog"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sarah Johnson</td>
+                                        <td>sarah@example.com</td>
+                                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                        <td><span class="badge bg-success">Active</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-success me-1" title="Approve Campaigner">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger me-1" title="Reject">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Mike Brown</td>
+                                        <td>mike@example.com</td>
+                                        <td><span class="badge bg-secondary">Banned</span></td>
+                                        <td><span class="badge bg-danger">Inactive</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-success" title="Activate User">
+                                                <i class="fas fa-check-circle"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Campaign Approval Tab -->
+                    <div class="tab-pane fade" id="campaign-approval">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Campaign Approval</h1>
+                        </div>
+
+                        <div class="row">
+                            <!-- Pending Campaigns -->
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-warning text-white">
+                                        <h5 class="mb-0">Pending Approval (3)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="list-group">
+                                            <div class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <div>
+                                                        <h6>Eco-Friendly Water Bottle</h6>
+                                                        <small class="text-muted">By Green Innovations</small>
+                                                        <p class="mt-2 mb-1">Goal: $5,000 | Deadline: 2025-07-15</p>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-sm btn-success me-1">
+                                                            <i class="fas fa-check"></i> Approve
+                                                        </button>
+                                                        <button class="btn btn-sm btn-danger">
+                                                            <i class="fas fa-times"></i> Reject
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start">
+                                                    <div>
+                                                        <h6>Community Garden Project</h6>
+                                                        <small class="text-muted">By Urban Green</small>
+                                                        <p class="mt-2 mb-1">Goal: $8,000 | Deadline: 2025-08-20</p>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <button class="btn btn-sm btn-success me-1">
+                                                            <i class="fas fa-check"></i> Approve
+                                                        </button>
+                                                        <button class="btn btn-sm btn-danger">
+                                                            <i class="fas fa-times"></i> Reject
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Active Campaigns -->
+                            <div class="col-md-6">
+                                <div class="card mb-4">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">Active Campaigns (5)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Title</th>
+                                                        <th>Creator</th>
+                                                        <th>Progress</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Smart Home Controller</td>
+                                                        <td>Tech Innovators</td>
+                                                        <td>
+                                                            <div class="progress" style="height: 5px;">
+                                                                <div class="progress-bar" style="width: 75%"></div>
+                                                            </div>
+                                                            <small>75% ($3,750/$5,000)</small>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>AI Learning Device</td>
+                                                        <td>Future Tech Labs</td>
+                                                        <td>
+                                                            <div class="progress" style="height: 5px;">
+                                                                <div class="progress-bar" style="width: 42%"></div>
+                                                            </div>
+                                                            <small>42% ($2,100/$5,000)</small>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-sm btn-outline-danger">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pledges Tab -->
+                    <div class="tab-pane fade" id="pledges">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Pledge Management</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group me-2">
+                                    <button class="btn btn-sm btn-outline-secondary">Export</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Campaign</th>
+                                        <th>Backer</th>
+                                        <th>Amount</th>
+                                        <th>Reward</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Smart Home Controller</td>
+                                        <td>john@example.com</td>
+                                        <td>$100</td>
+                                        <td>Early Bird</td>
+                                        <td>2025-05-10</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>AI Learning Device</td>
+                                        <td>sarah@example.com</td>
+                                        <td>$50</td>
+                                        <td>Basic</td>
+                                        <td>2025-05-12</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Eco-Friendly Water Bottle</td>
+                                        <td>mike@example.com</td>
+                                        <td>$75</td>
+                                        <td>Standard</td>
+                                        <td>2025-05-13</td>
+                                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Reports Tab -->
+                    <div class="tab-pane fade" id="reports">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2">Reports & Analytics</h1>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group me-2">
+                                    <select class="form-select form-select-sm">
+                                        <option>Last 7 Days</option>
+                                        <option>Last 30 Days</option>
+                                        <option selected>Last 90 Days</option>
+                                        <option>This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Campaign Performance</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="campaignChart" height="250"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">User Growth</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="userChart" height="250"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Top Performing Campaigns</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Rank</th>
+                                                <th>Campaign</th>
+                                                <th>Creator</th>
+                                                <th>Funded</th>
+                                                <th>Backers</th>
+                                                <th>Completion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Smart Home Controller</td>
+                                                <td>Tech Innovators</td>
+                                                <td>$3,750</td>
+                                                <td>142</td>
+                                                <td>
+                                                    <div class="progress" style="height: 5px;">
+                                                        <div class="progress-bar bg-success" style="width: 75%"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Community Art Space</td>
+                                                <td>Creative Collective</td>
+                                                <td>$4,500</td>
+                                                <td>90</td>
+                                                <td>
+                                                    <div class="progress" style="height: 5px;">
+                                                        <div class="progress-bar bg-success" style="width: 90%"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>AI Learning Device</td>
+                                                <td>Future Tech Labs</td>
+                                                <td>$2,100</td>
+                                                <td>89</td>
+                                                <td>
+                                                    <div class="progress" style="height: 5px;">
+                                                        <div class="progress-bar bg-warning" style="width: 42%"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Blog</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contact</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <h5>Follow Us</h5>
+                    <ul class="nav">
+                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-twitter"></i></a></li>
+                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a></li>
+                        <li class="nav-item"><a href="#" class="text-white fs-4"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <h5>Newsletter</h5>
+                    <p>Get the latest updates on campaigns and success stories.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center mb-0">&copy; 2025 CrowdfundIt. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize charts (mock data)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Campaign Performance Chart
+            const campaignCtx = document.getElementById('campaignChart').getContext('2d');
+            new Chart(campaignCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                    datasets: [{
+                        label: 'Campaigns Launched',
+                        data: [12, 19, 8, 15, 7],
+                        backgroundColor: 'rgba(22, 160, 133, 0.7)',
+                        borderColor: 'rgba(22, 160, 133, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Campaigns Funded',
+                        data: [8, 12, 5, 9, 4],
+                        backgroundColor: 'rgba(230, 126, 34, 0.7)',
+                        borderColor: 'rgba(230, 126, 34, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // User Growth Chart
+            const userCtx = document.getElementById('userChart').getContext('2d');
+            new Chart(userCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                    datasets: [{
+                        label: 'New Users',
+                        data: [45, 62, 78, 93, 110],
+                        backgroundColor: 'rgba(44, 62, 80, 0.1)',
+                        borderColor: 'rgba(44, 62, 80, 1)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

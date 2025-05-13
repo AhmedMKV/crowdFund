@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crowdfunding Landing Page</title>
+    <title>CrowdFundIt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">CrowdfundIt</a>
@@ -17,14 +18,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                   <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="create.html">Start Campaign</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
-                <button class="btn btn-primary" type="button">Start a Campaign</button>
+               <a href="create.html"> <button class="btn btn-primary" type="button">Start a Campaign</button></a>
             </div>
         </div>
     </nav>
@@ -36,7 +35,7 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center" style="background-color: rgba(0, 0, 0, 0.5);">
                 <h1 class="display-3 fw-bold">CrowdfundIt</h1>
                 <p class="lead col-md-8 fs-4 mb-4">Empower bold ideas. Back innovative projects and make a real-world impact through crowdfunding.</p>
-                <a href="#" class="btn btn-primary btn-lg">Explore Projects</a>
+                <a href="campaigns.html" class="btn btn-primary btn-lg">Explore Projects</a>
             </div>
         </div>
     </div>
@@ -123,13 +122,13 @@
         <div class="container">
             <h2 class="text-center mb-5">Explore Categories</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <!-- Categories: Keep as-is but now interpreted as crowdfunding categories -->
+                
                <a href="campaigns.html"> <div class="col"><div class="card h-100 text-center"><img src="assets/images/health.jpg" class="card-img-top" alt="Health"><div class="card-body"><h5 class="card-title">Health & Wellness</h5></div></div></div></a>
-                <div class="col"><div class="card h-100 text-center"><img src="assets/images/infra.jpg" class="card-img-top" alt="Infrastructure"><div class="card-body"><h5 class="card-title">Infrastructure</h5></div></div></div>
-                <div class="col"><div class="card h-100 text-center"><img src="assets/images/tech.jpg" class="card-img-top" alt="Tech"><div class="card-body"><h5 class="card-title">Technology</h5></div></div></div>
-                <div class="col"><div class="card h-100 text-center"><img src="assets/images/education.jpg" class="card-img-top" alt="Education"><div class="card-body"><h5 class="card-title">Education</h5></div></div></div>
-                <div class="col"><div class="card h-100 text-center"><img src="assets/images/environment.jpg" class="card-img-top" alt="Environment"><div class="card-body"><h5 class="card-title">Environment</h5></div></div></div>
-                <div class="col"><div class="card h-100 text-center"><img src="assets/images/art.jpg" class="card-img-top" alt="Art"><div class="card-body"><h5 class="card-title">Arts & Culture</h5></div></div></div>
+                <a href="campaigns.html"><div class="col"><div class="card h-100 text-center"><img src="assets/images/infra.jpg" class="card-img-top" alt="Infrastructure"><div class="card-body"><h5 class="card-title">Infrastructure</h5></div></div></div></a>
+                <a href="campaigns.html"><div class="col"><div class="card h-100 text-center"><img src="assets/images/tech.jpg" class="card-img-top" alt="Tech"><div class="card-body"><h5 class="card-title">Technology</h5></div></div></div></a>
+                <a href="campaigns.html"><div class="col"><div class="card h-100 text-center"><img src="assets/images/education.jpg" class="card-img-top" alt="Education"><div class="card-body"><h5 class="card-title">Education</h5></div></div></div></a>
+                <a href="campaigns.html"><div class="col"><div class="card h-100 text-center"><img src="assets/images/environment.jpg" class="card-img-top" alt="Environment"><div class="card-body"><h5 class="card-title">Environment</h5></div></div></div></a>
+                <a href="campaigns.html"><div class="col"><div class="card h-100 text-center"><img src="assets/images/art.jpg" class="card-img-top" alt="Art"><div class="card-body"><h5 class="card-title">Arts & Culture</h5></div></div></div></a>
             </div>
         </div>
     </section>
@@ -141,7 +140,7 @@
                 <div class="col-md-8">
                     <h2 class="mb-4">Launch Your Idea Today</h2>
                     <p class="lead mb-4">Whether you're building something new or solving a big problem, CrowdfundIt helps bring your vision to life. Join thousands of creators and fund your project today.</p>
-                    <a href="#" class="btn btn-primary btn-lg">Start a Campaign</a>
+                    <a href="create.html" class="btn btn-primary btn-lg">Start a Campaign</a>
                 </div>
                 <div class="col-md-4 text-center mt-4 mt-md-0">
                     <img src="assets/images/test.jpg" class="img-fluid rounded" alt="Impact Image">
