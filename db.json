@@ -1,23 +1,63 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Jane Doe",
+      "id": "1",
+      "name": "Ahmed",
+      "email": "Ahmed@crowd.com",
+      "password": "hashed_password",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "d05b",
+      "name": "Ahmed Morsi",
+      "email": "aelmorsyss@gmail.com",
+      "password": "ahmed12345",
+      "role": "backer",
+      "isActive": true
+    },
+    {
+      "id": "58fc",
+      "name": "mohammed Ahmed",
+      "email": "mohammed@crowd.com",
+      "password": "mohamed123",
       "role": "campaigner",
-      "isActive": true,
-      "email": "jane@example.com",
-      "password": "hashed_password"
+      "isActive": true
+    },
+    {
+      "id": "4e46",
+      "name": "ahmed alaa",
+      "email": "ali@kmn.com",
+      "password": "knkn1231",
+      "role": "backer",
+      "isActive": true
+    },
+    {
+      "id": "bdc0",
+      "name": "moo salah",
+      "email": "mos@sss.com",
+      "password": "mosalah123",
+      "role": "backer",
+      "isActive": true
+    },
+    {
+      "id": "890b",
+      "name": "mohammed ali",
+      "email": "moha@crowd.com",
+      "password": "mohamed123",
+      "role": "backer",
+      "isActive": true
     }
   ],
   "campaigns": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Smart Watch",
       "creatorId": 1,
       "goal": 5000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...", 
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...",
       "rewards": [
         {
           "id": 1,
@@ -27,13 +67,13 @@
       ]
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Smart Watch",
       "creatorId": 1,
       "goal": 5000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...", 
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...",
       "rewards": [
         {
           "id": 1,
@@ -45,7 +85,7 @@
   ],
   "pledges": [
     {
-      "id": 1,
+      "id": "1",
       "campaignId": 1,
       "userId": 2,
       "amount": 100,
