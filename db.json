@@ -2,62 +2,22 @@
   "users": [
     {
       "id": "1",
-      "name": "Ahmed",
-      "email": "Ahmed@crowd.com",
+      "name": "Admin User",
+      "email": "admin@example.com",
       "password": "hashed_password",
       "role": "admin",
-      "isActive": true
-    },
-    {
-      "id": "d05b",
-      "name": "Ahmed Morsi",
-      "email": "aelmorsyss@gmail.com",
-      "password": "ahmed12345",
-      "role": "backer",
-      "isActive": true
-    },
-    {
-      "id": "58fc",
-      "name": "mohammed Ahmed",
-      "email": "mohammed@crowd.com",
-      "password": "mohamed123",
-      "role": "campaigner",
-      "isActive": true
-    },
-    {
-      "id": "4e46",
-      "name": "ahmed alaa",
-      "email": "ali@kmn.com",
-      "password": "knkn1231",
-      "role": "backer",
-      "isActive": true
-    },
-    {
-      "id": "bdc0",
-      "name": "moo salah",
-      "email": "mos@sss.com",
-      "password": "mosalah123",
-      "role": "backer",
-      "isActive": true
-    },
-    {
-      "id": "890b",
-      "name": "mohammed ali",
-      "email": "moha@crowd.com",
-      "password": "mohamed123",
-      "role": "backer",
       "isActive": true
     }
   ],
   "campaigns4": [
     {
       "id": "1",
-      "title": "Smart Watch",
-      "creatorId": 1,
+      "title": "Sample Campaign",
+      "creatorId": "1",
       "goal": 5000,
       "deadline": "2024-12-31",
       "isApproved": false,
-      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...",
+      "images": ["base64_image_data"],
       "rewards": [
         {
           "id": 1,
@@ -65,45 +25,16 @@
           "amount": 50
         }
       ]
-    },
-    {
-      "id": "1",
-      "title": "Smart Watch",
-      "creatorId": 1,
-      "goal": 5000,
-      "deadline": "2024-12-31",
-      "isApproved": false,
-      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...",
-      "rewards": [
-        {
-          "id": 1,
-          "title": "Early Bird",
-          "amount": 50
-        }
-      ]
-    },
-    {
-      "id": "4d99",
-      "title": "crowdfund project",
-      "category": "tech",
-      "description": "nw ch cehcecd",
-      "goal": 120,
-      "deadline": "2025-06-14",
-      "story": "kocwjcnehce dcje",
-      "creatorId": "58fc",
-      "images": ["data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEASABIAAD/EPzP5nP+7mj0/qbn+6mn3PyiP4D9z939z+H9zdP5+fhkNJ//9k="
-      ],
-      "isApproved": false
     }
   ],
   "pledges": [
     {
       "id": "1",
-      "campaignId": 1,
-      "userId": 2,
+      "campaignId": "1",
+      "userId": "1",
       "amount": 100,
-      "rewardId": 1
+      "rewardId": 1,
+      "date": "2024-03-15"
     }
-  ],
-  "updates": []
+  ]
 }
