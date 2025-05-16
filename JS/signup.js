@@ -60,7 +60,8 @@ form.addEventListener("submit", async (e) => {
             email,
             password,
             role,
-            isActive: true
+            isActive: true,
+            pledgedCampaigns :[]
         };
 
         // add the user to json server 

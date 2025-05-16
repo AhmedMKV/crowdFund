@@ -74,6 +74,7 @@ form.addEventListener("submit", async (e) => {
     creatorId: loggedInUser.id,
     images: [base64Image],
     isApproved: false,
+    raised :0
   };
 
   try {
