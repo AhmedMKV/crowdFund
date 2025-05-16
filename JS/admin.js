@@ -69,7 +69,7 @@ const updateDashboardStats = async () => {
     }
 };
 
-// User Management Functions
+// User Management Funs
 const loadUsers = async () => {
     try {
         const response = await fetch('http://localhost:4000/users');
