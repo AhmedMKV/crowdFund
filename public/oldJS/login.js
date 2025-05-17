@@ -28,9 +28,9 @@ form.addEventListener("submit", async (e) => {
     
 
     if (user.role === "admin") {
-      window.location.href = "admin.html";
+      window.location.href = "../admin.html";
     } else {
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     }
   } catch (error) {
     console.error("Login failed:", error);
