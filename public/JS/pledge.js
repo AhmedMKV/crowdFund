@@ -1,6 +1,6 @@
 
 //static campaign just for testing
-localStorage.setItem("selectedCampaignId", "44c7");
+localStorage.setItem("selectedCampaignId", "19af");
 
 //selecting elements 
 const pledgeForm = document.getElementById("pledgeForm");
@@ -24,7 +24,7 @@ const selectedCampaignId = localStorage.getItem("selectedCampaignId");
 //user valisation
 if (!currentUser || currentUser.role !== "backer") {
   alert("Only users with role 'backer' can make a pledge.");
-  window.location.href = "login.html";
+  window.location.href = "../login.html";
 }
 
 // get campaign
@@ -136,9 +136,9 @@ pledgeForm.addEventListener("submit", async (e) => {
     });
 
     alert("Thank you for your pledge!");
-    window.location.href = "campaigns.html";
+    window.location.href = "../campaigns.html";
   } catch (error) {
-   /*  console.error("Pledge failed:", error);
-    alert("An error occurred while processing your pledge. Please try again."); */
+    console.error("Pledge failed:", error);
+    alert(error);
   }
 });

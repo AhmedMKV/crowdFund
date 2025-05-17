@@ -88,7 +88,7 @@ form.addEventListener("submit", async (e) => {
 
 /*     alert("Campaign created successfully! Waiting for admin approval.");
  */    
-    window.location.href = "campaigns.html";
+    window.location.href = "../campaigns.html";
   } catch (err) {
     alert("Something went wrong. Please try again.");
   }
