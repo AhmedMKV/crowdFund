@@ -1,3 +1,17 @@
+// Check if a user is already logged in
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (loggedInUser) {
+  alert("You are already logged in!");
+
+  if (loggedInUser.role === "admin") {
+    window.location.href = "../admin.html";
+  } else {
+    window.location.href = "../index.html";
+  }
+}
+
+
 //selecting elements 
 const form = document.querySelector(".auth-form");
 const emailInput = document.getElementById("email");

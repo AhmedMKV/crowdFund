@@ -78,7 +78,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:4000/campaigns4", {
+    const res = await fetch("http://localhost:3000/campaigns4", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newCampaign),
@@ -86,10 +86,29 @@ form.addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error("Failed to create campaign.");
 
+    
+     const createdCampaign = await res.json(); 
+
+    const userRes = await fetch(`http://localhost:3000/users/${loggedInUser.id}`);
+    if (!userRes.ok) throw new Error("Failed to fetch user data.");
+
+    const user = await userRes.json();
+
+    const updatedCreatedCampaigns = user.createdCampaigns || [];
+    updatedCreatedCampaigns.push(createdCampaign.id);
+
+    const patchUserRes = await fetch(`http://localhost:3000/users/${loggedInUser.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ createdCampaigns: updatedCreatedCampaigns }),
+    });
+
+    if (!patchUserRes.ok) throw new Error("Failed to update user campaigns.");
+
 /*     alert("Campaign created successfully! Waiting for admin approval.");
  */    
-    window.location.href = "../campaigns.html";
+    window.location.href = "./campaigns.html";
   } catch (err) {
-    alert("Something went wrong. Please try again.");
+    /* alert("Something went wrong. Please try again."); */
   }
 });
