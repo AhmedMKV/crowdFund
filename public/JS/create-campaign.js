@@ -1,4 +1,8 @@
-  console.log(localStorage.getItem("loggedInUser"));
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!loggedInUser || loggedInUser.role !== "campaigner") {
+      alert("you need to be campaigner to access this page ")
+    window.location.href="index.html";
+  }
 
 const form = document.querySelector("form");
 form.addEventListener("submit", async (e) => {
@@ -16,12 +20,9 @@ form.addEventListener("submit", async (e) => {
     .value.trim();
   const story = document.getElementById("campaignStory").value.trim();
 
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  
 
-  if (!loggedInUser || loggedInUser.role !== "campaigner") {
-    window.location.href="index.html";
-    return;
-  }
+
   
 
   //validation
