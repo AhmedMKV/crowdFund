@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4913f458b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/style.css">
+    <style>
+        .campaigns-wrapper {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .side-nav {
+            width: 250px;
+            flex-shrink: 0;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+        }
+        
+        .side-nav h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .side-nav .nav-link {
+            color: #666;
+            padding: 0.5rem 0;
+            display: block;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .side-nav .nav-link:hover,
+        .side-nav .nav-link.active {
+            color: #0d6efd;
+        }
+        
+        .side-nav .nav-link i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .campaigns-content {
+            flex-grow: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .campaigns-wrapper {
+                flex-direction: column;
+            }
+            
+            .side-nav {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,9 +73,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="create.html">Start Campaign</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="campaigns.html">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="create.html">Start Campaign</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
                 <button class="btn btn-primary" type="button">Start a Campaign</button>
@@ -28,273 +84,155 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="container campaigns-container py-4">
-        <h1 class="category-title mb-4">Technology Projects</h1>
-        
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <!-- Campaign 1 -->
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="Smart Home Controller">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">Smart Home Controller</h2>
-                        <p class="campaign-creator small text-muted">By Tech Innovators Inc.</p>
-                        <p class="campaign-description">A revolutionary device that unifies all your smart home systems into one intuitive interface.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>75% funded</span>
-                                <span class="progress-percent fw-bold">$37,500 raised</span>
+    <main class="container py-4">
+        <div class="campaigns-wrapper">
+            <!-- Side Navigation -->
+            <aside class="side-nav">
+                <h3>Categories</h3>
+                <nav>
+                    <a href="#" class="nav-link active" data-category="health">
+                        <i class="fas fa-heartbeat"></i> Health & Wellness
+                    </a>
+                    <a href="#" class="nav-link" data-category="infrastructure">
+                        <i class="fas fa-building"></i> Infrastructure
+                    </a>
+                    <a href="#" class="nav-link" data-category="technology">
+                        <i class="fas fa-laptop"></i> Technology
+                    </a>
+                    <a href="#" class="nav-link" data-category="education">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </a>
+                    <a href="#" class="nav-link" data-category="environment">
+                        <i class="fas fa-leaf"></i> Environment
+                    </a>
+                    <a href="#" class="nav-link" data-category="arts">
+                        <i class="fas fa-paint-brush"></i> Arts & Culture
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Campaigns Content -->
+            <div class="campaigns-content">
+                <h1 class="category-title mb-4">All Campaigns</h1>
+                
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="campaigns-container">
+                    <!-- Campaign 1 -->
+                    <div class="col campaign-item" data-category="technology">
+                        <article class="campaign-card h-100">
+                            <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
+                                <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="Smart Home Controller">
+                            </figure>
+                            <div class="campaign-body p-3">
+                                <h2 class="campaign-title h5">Smart Home Controller</h2>
+                                <p class="campaign-creator small text-muted">By Tech Innovators Inc.</p>
+                                <p class="campaign-description">A revolutionary device that unifies all your smart home systems into one intuitive interface.</p>
+                                
+                                <div class="campaign-progress mb-2">
+                                    <div class="progress-text d-flex justify-content-between small">
+                                        <span>75% funded</span>
+                                        <span class="progress-percent fw-bold">$37,500 raised</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px">
+                                        <div class="progress-bar" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">142</span>
+                                        <span class="stat-label text-muted">Backers</span>
+                                    </div>
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">15</span>
+                                        <span class="stat-label text-muted">Days Left</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="campaign.html" class="btn btn-primary w-100 mt-3">
+                                    <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
+                                </a>
                             </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">142</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">15</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
+                        </article>
                     </div>
-                </article>
-            </div>
-            
-            <!-- Campaign 2 -->
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">AI Learning Device</h2>
-                        <p class="campaign-creator small text-muted">By Future Tech Labs</p>
-                        <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>42% funded</span>
-                                <span class="progress-percent fw-bold">$21,000 raised</span>
+                    
+                    <!-- Campaign 2 -->
+                    <div class="col campaign-item" data-category="education">
+                        <article class="campaign-card h-100">
+                            <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
+                                <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
+                            </figure>
+                            <div class="campaign-body p-3">
+                                <h2 class="campaign-title h5">AI Learning Device</h2>
+                                <p class="campaign-creator small text-muted">By Future Tech Labs</p>
+                                <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
+                                
+                                <div class="campaign-progress mb-2">
+                                    <div class="progress-text d-flex justify-content-between small">
+                                        <span>42% funded</span>
+                                        <span class="progress-percent fw-bold">$21,000 raised</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px">
+                                        <div class="progress-bar" style="width: 42%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">89</span>
+                                        <span class="stat-label text-muted">Backers</span>
+                                    </div>
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">28</span>
+                                        <span class="stat-label text-muted">Days Left</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="campaign.html" class="btn btn-primary w-100 mt-3">
+                                    <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
+                                </a>
                             </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">89</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">28</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
+                        </article>
                     </div>
-                </article>
-            </div>
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">AI Learning Device</h2>
-                        <p class="campaign-creator small text-muted">By Future Tech Labs</p>
-                        <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>42% funded</span>
-                                <span class="progress-percent fw-bold">$21,000 raised</span>
+                    
+                    <!-- Campaign 3 -->
+                    <div class="col campaign-item" data-category="environment">
+                        <article class="campaign-card h-100">
+                            <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
+                                <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="Sustainable Tech Hub">
+                            </figure>
+                            <div class="campaign-body p-3">
+                                <h2 class="campaign-title h5">Sustainable Tech Hub</h2>
+                                <p class="campaign-creator small text-muted">By Green Tech Collective</p>
+                                <p class="campaign-description">A co-working space dedicated to environmentally friendly technology startups.</p>
+                                
+                                <div class="campaign-progress mb-2">
+                                    <div class="progress-text d-flex justify-content-between small">
+                                        <span>93% funded</span>
+                                        <span class="progress-percent fw-bold">$93,000 raised</span>
+                                    </div>
+                                    <div class="progress" style="height: 8px">
+                                        <div class="progress-bar" style="width: 93%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">215</span>
+                                        <span class="stat-label text-muted">Backers</span>
+                                    </div>
+                                    <div class="stat-item text-center">
+                                        <span class="stat-value d-block fw-bold">5</span>
+                                        <span class="stat-label text-muted">Days Left</span>
+                                    </div>
+                                </div>
+                                
+                                <a href="campaign.html" class="btn btn-primary w-100 mt-3">
+                                    <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
+                                </a>
                             </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">89</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">28</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
+                        </article>
                     </div>
-                </article>
-            </div>
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">AI Learning Device</h2>
-                        <p class="campaign-creator small text-muted">By Future Tech Labs</p>
-                        <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>42% funded</span>
-                                <span class="progress-percent fw-bold">$21,000 raised</span>
-                            </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">89</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">28</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">AI Learning Device</h2>
-                        <p class="campaign-creator small text-muted">By Future Tech Labs</p>
-                        <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>42% funded</span>
-                                <span class="progress-percent fw-bold">$21,000 raised</span>
-                            </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">89</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">28</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
-                    </div>
-                </article>
-            </div>
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="AI Learning Device">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">AI Learning Device</h2>
-                        <p class="campaign-creator small text-muted">By Future Tech Labs</p>
-                        <p class="campaign-description">An educational tool that adapts to your child's learning style using artificial intelligence.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>42% funded</span>
-                                <span class="progress-percent fw-bold">$21,000 raised</span>
-                            </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 42%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">89</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">28</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
-                    </div>
-                </article>
-            </div>
-            
-            <!-- Campaign 3 -->
-            <div class="col">
-                <article class="campaign-card h-100">
-                    <figure class="campaign-image-wrapper mb-0 ratio ratio-16x9">
-                        <img src="./assets/images/test.jpg" class="img-fluid object-fit-cover" alt="Sustainable Tech Hub">
-                    </figure>
-                    <div class="campaign-body p-3">
-                        <h2 class="campaign-title h5">Sustainable Tech Hub</h2>
-                        <p class="campaign-creator small text-muted">By Green Tech Collective</p>
-                        <p class="campaign-description">A co-working space dedicated to environmentally friendly technology startups.</p>
-                        
-                        <div class="campaign-progress mb-2">
-                            <div class="progress-text d-flex justify-content-between small">
-                                <span>93% funded</span>
-                                <span class="progress-percent fw-bold">$93,000 raised</span>
-                            </div>
-                            <div class="progress" style="height: 8px">
-                                <div class="progress-bar" style="width: 93%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="campaign-stats d-flex justify-content-between small border-top pt-2 mt-2">
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">215</span>
-                                <span class="stat-label text-muted">Backers</span>
-                            </div>
-                            <div class="stat-item text-center">
-                                <span class="stat-value d-block fw-bold">5</span>
-                                <span class="stat-label text-muted">Days Left</span>
-                            </div>
-                        </div>
-                        
-                        <a href="campaign.html" class="btn btn-primary w-100 mt-3">
-                            <i class="fas fa-hand-holding-heart me-2"></i>Back This Project
-                        </a>
-                    </div>
-                </article>
+                </div>
             </div>
         </div>
     </main>
@@ -340,6 +278,65 @@
     </footer>
 
     <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Category Filtering Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryFromUrl = urlParams.get('category');
+            
+            // Get all category links and campaign items
+            const categoryLinks = document.querySelectorAll('.side-nav .nav-link');
+            const campaignItems = document.querySelectorAll('.campaign-item');
+            const categoryTitle = document.querySelector('.category-title');
+            
+            // Function to filter campaigns
+            function filterCampaigns(category) {
+                // Update active state of category links
+                categoryLinks.forEach(link => {
+                    if (link.dataset.category === category) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                // Update category title
+                const categoryName = categoryLinks.find(link => link.dataset.category === category)?.textContent.trim();
+                categoryTitle.textContent = categoryName ? `${categoryName} Projects` : 'All Campaigns';
+                
+                // Show/hide campaigns based on category
+                campaignItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Add click event listeners to category links
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.dataset.category;
+                    filterCampaigns(category);
+                    
+                    // Update URL without page reload
+                    const newUrl = category === 'all' 
+                        ? window.location.pathname 
+                        : `${window.location.pathname}?category=${category}`;
+                    window.history.pushState({}, '', newUrl);
+                });
+            });
+            
+            // If category is specified in URL, filter accordingly
+            if (categoryFromUrl) {
+                filterCampaigns(categoryFromUrl);
+            }
+        });
+    </script>
 </body>
 </html>
