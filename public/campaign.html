@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campaign</title>
+    <title>Campaign Details | CrowdfundIt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4913f458b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/campaign.js" defer></script>
 </head>
 <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,7 +23,10 @@
                     <li class="nav-item"><a class="nav-link active" href="create.html">Start Campaign</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                 </ul>
-                <button class="btn btn-primary" type="button">Start a Campaign</button>
+                 <button type="button" id="profileBtn" class="btn btn-primary mx-2">
+            <i class="bi bi-person-circle me-1"></i> Profile
+          </button>
+                <a href="create.html"><button class="btn btn-primary" type="button">Start a Campaign</button></a>
             </div>
         </div>
     </nav>
@@ -39,12 +43,9 @@
                     </div>
                     
                     <div class="d-flex flex-column flex-md-row justify-content-center text-center gap-3 gap-md-5 mb-4">
+                      
                         <div class="stat-item">
-                            <div class="stat-number">104</div>
-                            <div class="stat-label">Backers</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">$9,850</div>
+                            <div class="stat-number">loading...</div>
                             <div class="stat-label">Funded</div>
                         </div>
                     </div>
@@ -54,8 +55,8 @@
                             <div class="progress-bar" role="progressbar" style="width: 39.4%" aria-valuenow="39.4" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex justify-content-between goal-info mt-1">
-                            <span>Goal: $25,000</span>
-                            <span>Days Left: 57</span>
+                            <span>Goal: loading.....</span>
+                            <span></span>
                         </div>
                     </div>
                     
@@ -101,12 +102,7 @@
         <div class="tab-content" id="campaignTabContent">
             <!-- Story Section -->
             <article class="tab-pane fade show active" id="story" role="tabpanel" aria-labelledby="story-tab">
-                <h2 class="h5 mb-4">Campaign Story</h2>
-                <p>This project is driven by the passion to make a meaningful difference. The funds raised will go toward essential supplies, development, and outreach efforts that help real people in need.</p>
-                <p>Your support empowers us to continue this mission and bring hope to those who rely on our efforts. Whether it's $5 or $500, your help matters.</p>
-                <p>We believe in the power of community, and with your help, we can reach our funding goal and expand our impact.</p>
-                <p>Thanks for being part of our journey. Let’s create something amazing—together.</p>
-                <p class="mt-4">With gratitude,<br><strong>The Campaign Team</strong></p>
+                
             </article>
 
             <!-- Supporters Section -->
@@ -171,8 +167,16 @@
             <p class="text-center mb-0">&copy; 2025 CrowdfundIt. All Rights Reserved.</p>
         </div>
     </footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<div id="loader-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.8); z-index:9999; align-items:center; justify-content:center;">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

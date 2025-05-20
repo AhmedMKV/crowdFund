@@ -26,6 +26,9 @@
                 </ul>
                 <div class="d-flex align-items-center">
                     <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                    <button type="button" id="profileBtn" class="btn btn-primary mx-2">
+            <i class="bi bi-person-circle me-1"></i> Profile
+          </button>
                 </div>
             </div>
         </div>
@@ -36,18 +39,18 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="create-campaign-card p-4 p-md-5">
-                    <h1 class="mb-4 text-center">Create Your Campaign</h1>
+                    <h1 class="mb-4 text-center text-dark">Create Your Campaign</h1>
                     
                     <form>
                         <div class="form-section mb-5">
-                            <h2 class="section-title mb-4">Basic Information</h2>
+                            <h2 class="section-title mb-4 text-dark">Basic Information</h2>
                             <div class="mb-4">
-                                <label for="campaignTitle" class="form-label">Campaign Title</label>
+                                <label for="campaignTitle" class="form-label text-dark">Campaign Title</label>
                                 <input type="text" class="form-control form-control-lg" id="campaignTitle" required>
                             </div>
                             
                             <div class="mb-4">
-                                <label for="campaignCategory" class="form-label">Category</label>
+                                <label for="campaignCategory" class="form-labe text-darkl">Category</label>
                                 <select class="form-select form-select-lg" id="campaignCategory" required>
                                     <option value="" disabled selected>Select a category</option>
                                     <option value="tech">Technology</option>
@@ -55,18 +58,19 @@
                                     <option value="education">Education</option>
                                     <option value="health">Health</option>
                                     <option value="environment">Environment</option>
+                                    <option value="Infrastructure">Infrastructure</option>
                                 </select>
                             </div>
                             
                             <div class="mb-4">
-                                <label for="campaignDescription" class="form-label">Description</label>
+                                <label for="campaignDescription" class="form-label text-dark">Description</label>
                                 <textarea class="form-control" id="campaignDescription" rows="5" required></textarea>
                             </div>
                         </div>
                         
                         <!-- Media Section -->
                         <div class="form-section mb-5">
-                            <h2 class="section-title mb-4">Media</h2>
+                            <h2 class="section-title mb-4 text-dark">Media</h2>
                             <div class="image-upload-wrapper p-4 text-center mb-3">
                                 <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-primary"></i>
                                 <h5>Upload Campaign Images</h5>
@@ -85,11 +89,11 @@
                             <h2 class="section-title mb-4">Funding</h2>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="fundingGoal" class="form-label">Funding Goal ($)</label>
+                                    <label for="fundingGoal" class="form-label text-dark">Funding Goal ($)</label>
                                     <input type="number" class="form-control" id="fundingGoal" min="100" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="campaignDuration" class="form-label">Campaign Duration (Days)</label>
+                                    <label for="campaignDuration" class="form-label text-dark">Campaign Duration (Days)</label>
                                     <input type="number" class="form-control" id="campaignDuration" min="7" max="60" value="30" required>
                                 </div>
                             </div>
@@ -101,7 +105,7 @@
                         <div class="form-section mb-5">
                             <h2 class="section-title mb-4">Your Story</h2>
                             <div class="mb-4">
-                                <label for="campaignStory" class="form-label">Tell your story</label>
+                                <label for="campaignStory" class="form-label text-dark">Tell your story</label>
                                 <textarea class="form-control" id="campaignStory" rows="8" required></textarea>
                             </div>
                         </div>
@@ -155,9 +159,13 @@
             <p class="text-center mb-0 small">&copy; 2025 CrowdfundIt. All Rights Reserved.</p>
         </div>
     </footer>
+     <div id="loader-overlay">
+      <div class="spinner"></div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
 </body>
 </html>

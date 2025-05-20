@@ -1,267 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard | CrowdfundIt</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
     <script src="./JS/admin.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">CrowdfundIt</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">CrowdfundIt</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="campaigns.html">Campaigns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="create-campaign.html">Start Campaign</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="admin-dashboard.html">Admin</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <span class="me-3">Admin User</span>
+            <button
+              class="btn btn-outline-danger"
+              type="button"
+              id="Logout-btn"
+            >
+              Logout
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="campaigns.html">Campaigns</a></li>
-                    <li class="nav-item"><a class="nav-link" href="create-campaign.html">Start Campaign</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html">Admin</a></li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <span class="me-3">Admin User</span>
-                    <button class="btn btn-outline-danger" type="button">Logout</button>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </nav>
 
     <div class="container-fluid mt-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-lg-2 col-md-3 d-md-block bg-light sidebar">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#dashboard" data-bs-toggle="tab">
-                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#user-management" data-bs-toggle="tab">
-                                <i class="fas fa-users me-2"></i>User Management
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#campaign-approval" data-bs-toggle="tab">
-                                <i class="fas fa-clipboard-check me-2"></i>Campaign Approval
-                            </a>
-                        </li>
-                       
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-lg-10 col-md-9 ms-sm-auto px-md-4">
-                <div class="tab-content">
-                    <!-- Dashboard Tab -->
-                    <div class="tab-pane fade show active" id="dashboard">
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                            <h1 class="h2">Admin Dashboard</h1>
-                        </div>
-
-                        <!-- Stats Cards -->
-                        <div class="row mb-4">
-                            <div class="col-md-3">
-                                <div class="card text-white bg-primary mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title">Total Users</h5>
-                                                <h2 class="mb-0" id="totalUsers"></h2>
-                                            </div>
-                                            <i class="fas fa-users fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card text-white bg-success mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title" >Active Campaigns</h5>
-                                                <h2 class="mb-0" id="activeCampiagns"></h2>
-                                            </div>
-                                            <i class="fas fa-clipboard-list fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card text-white bg-warning mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title" >Pending Approval</h5>
-                                                <h2 class="mb-0" id="pendingApproval"></h2>
-                                            </div>
-                                            <i class="fas fa-clock fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card text-white bg-danger mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title">Total Pledges</h5>
-                                                <h2 class="mb-0" id="totalPledges"></h2>
-                                            </div>
-                                            <i class="fas fa-dollar-sign fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                      
-                    </div>
-
-                    <!-- User Management Tab -->
-                    <div class="tab-pane fade" id="user-management">
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                            <h1 class="h2">User Management</h1>
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group me-2">
-                                    <button class="btn btn-sm btn-outline-secondary">Export</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Campaign Approval Tab -->
-                    <div class="tab-pane fade" id="campaign-approval">
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                            <h1 class="h2">Campaign Approval</h1>
-                        </div>
-
-                        <div class="row">
-                            <!-- Pending Campaigns -->
-                            <div class="col-md-6">
-                                <div class="card mb-4">
-                                    <div class="card-header bg-warning text-white">
-                                        <h5 class="mb-0">Pending Approval (3)</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="list-group" style="max-height: 400px; overflow-y: auto;">
-                                            <div class="list-group-item">
-                                                <div class="d-flex justify-content-between align-items-start">
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="list-group-item">
-                                                <div class="d-flex justify-content-between align-items-start">
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Active Campaigns -->
-                            <div class="col-md-6">
-                                <div class="card mb-4">
-                                    <div class="card-header bg-success text-white">
-                                        <h5 class="mb-0">Active Campaigns (5)</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                                            <table class="table table-sm">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Title</th>
-                                                        <th>Creator</th>
-                                                        <th>Progress</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                             <tbody id="activeCampaignsTableBody">
-                                            </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                 
-                </div>
-            </div>
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-2 col-md-3 d-md-block bg-light sidebar">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="#dashboard"
+                  data-bs-toggle="tab"
+                >
+                  <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#user-management"
+                  data-bs-toggle="tab"
+                >
+                  <i class="fas fa-users me-2"></i>User Management
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="#campaign-approval"
+                  data-bs-toggle="tab"
+                >
+                  <i class="fas fa-clipboard-check me-2"></i>Campaign Approval
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-10 col-md-9 ms-sm-auto px-md-4">
+          <div class="tab-content">
+            <!-- Dashboard Tab -->
+            <div class="tab-pane fade show active" id="dashboard">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+              >
+                <h1 class="h2">Admin Dashboard</h1>
+              </div>
+
+              <!-- Stats Cards -->
+              <div class="row mb-4">
+                <div class="col-md-3">
+                  <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <h5 class="card-title">Total Users</h5>
+                          <h2 class="mb-0" id="totalUsers"></h2>
+                        </div>
+                        <i class="fas fa-users fa-3x"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <h5 class="card-title">Active Campaigns</h5>
+                          <h2 class="mb-0" id="activeCampiagns"></h2>
+                        </div>
+                        <i class="fas fa-clipboard-list fa-3x"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <h5 class="card-title">Pending Approval</h5>
+                          <h2 class="mb-0" id="pendingApproval"></h2>
+                        </div>
+                        <i class="fas fa-clock fa-3x"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <div>
+                          <h5 class="card-title">Total Pledges</h5>
+                          <h2 class="mb-0" id="totalPledges"></h2>
+                        </div>
+                        <i class="fas fa-dollar-sign fa-3x"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- User Management Tab -->
+            <div class="tab-pane fade" id="user-management">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+              >
+                <h1 class="h2">User Management</h1>
+              </div>
+
+              <div
+                class="table-responsive"
+                style="max-height: 400px; overflow-y: auto"
+              >
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Campaign Approval Tab -->
+            <div class="tab-pane fade" id="campaign-approval">
+              <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+              >
+                <h1 class="h2">Campaign Approval</h1>
+              </div>
+
+              <div class="row">
+                <!-- Pending Campaigns -->
+                <div class="col-md-6">
+                  <div class="card mb-4">
+                    <div class="card-header bg-warning text-white">
+                      <h5 class="mb-0">Pending Approval (3)</h5>
+                    </div>
+                    <div class="card-body">
+                      <div
+                        class="list-group"
+                        style="max-height: 400px; overflow-y: auto"
+                      >
+                        <div class="list-group-item">
+                          <div
+                            class="d-flex justify-content-between align-items-start"
+                          ></div>
+                        </div>
+                        <div class="list-group-item">
+                          <div
+                            class="d-flex justify-content-between align-items-start"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Active Campaigns -->
+                <div class="col-md-6">
+                  <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                      <h5 class="mb-0">Active Campaigns (5)</h5>
+                    </div>
+                    <div class="card-body">
+                      <div
+                        class="table-responsive"
+                        style="max-height: 400px; overflow-y: auto"
+                      >
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th>Title</th>
+                              
+                              <th>Progress</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody id="activeCampaignsTableBody"></tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <h5>Quick Links</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Blog</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contact</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQ</a></li>
-                    </ul>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <h5>Quick Links</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-white">About</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-white">Blog</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-white">Contact</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-white">FAQ</a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="col-md-3 mb-3">
-                    <h5>Follow Us</h5>
-                    <ul class="nav">
-                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-twitter"></i></a></li>
-                        <li class="nav-item me-3"><a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a></li>
-                        <li class="nav-item"><a href="#" class="text-white fs-4"><i class="fab fa-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
+          <div class="col-md-3 mb-3">
+            <h5>Follow Us</h5>
+            <ul class="nav">
+              <li class="nav-item me-3">
+                <a href="#" class="text-white fs-4"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="nav-item me-3">
+                <a href="#" class="text-white fs-4"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </li>
+              <li class="nav-item me-3">
+                <a href="#" class="text-white fs-4"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="text-white fs-4"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="col-md-6 mb-3">
-                    <h5>Newsletter</h5>
-                    <p>Get the latest updates on campaigns and success stories.</p>
-                    <form>
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <hr class="my-4">
-            <p class="text-center mb-0">&copy; 2025 CrowdfundIt. All Rights Reserved.</p>
+          <div class="col-md-6 mb-3">
+            <h5>Newsletter</h5>
+            <p>Get the latest updates on campaigns and success stories.</p>
+            <form>
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
         </div>
+        <hr class="my-4" />
+        <p class="text-center mb-0">
+          &copy; 2025 CrowdfundIt. All Rights Reserved.
+        </p>
+      </div>
     </footer>
+    <div id="loader-overlay">
+      <div class="spinner"></div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
-   
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>

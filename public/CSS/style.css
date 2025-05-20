@@ -1,27 +1,29 @@
 :root {
-  --primary: #16a085;
-  --primary-dark: #138d75;
-  --secondary: #e67e22;
-  --dark: #2c3e50;
+  --primary: #5c6bc0;
+  --primary-dark: #3949ab;
+  --secondary: #ff7043;
+  --dark: #1c1f26;
   --gray: #7f8c8d;
-  --light-gray: #dfe6e9;
-  --bg-light: #f5f7fa;
-  --white: #ffffff;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --light-gray: #2e3440;
+  --bg-light: #1a1d24;
+  --white: #f1f1f1;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+
 body {
   font-family: "Inter", "Segoe UI", sans-serif;
-  color: var(--dark);
+  color: var(--white);
   line-height: 1.6;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4f1f5 50%, #d8e9f0 100%);
+  background: linear-gradient(135deg, #1a1d24 0%, #2c2f38 40%, #3b3f4a 100%);
   background-attachment: fixed;
   margin: 0;
   padding: 0;
 }
+
 
 /* Background pattern overlay */
 body::after {
@@ -55,7 +57,7 @@ body::after {
 /* Navbar */
 .navbar {
   padding: 1rem 0;
-  background-color: var(--white) !important;
+ 
   box-shadow: var(--shadow-sm);
 }
 
@@ -67,7 +69,7 @@ body::after {
 
 .nav-link {
   font-weight: 500;
-  color: var(--dark) !important;
+  color : var(--primary);
   padding: 0.5rem 1rem !important;
   transition: var(--transition);
 }
@@ -108,7 +110,14 @@ body::after {
   margin-bottom: 2rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+.text-color{
+  color: var(--primary-dark);
+}
 
+
+a{
+  text-decoration: none;
+}
 .hero-btn {
   padding: 0.75rem 2.5rem;
   font-weight: 600;
@@ -156,7 +165,9 @@ body::after {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
-
+.card-img{
+  max-height: 99vh;
+}
 .card-img-top {
   height: 200px;
   object-fit: cover;
@@ -905,6 +916,34 @@ footer {
 .payment-method-icon:hover {
   opacity: 1;
   transform: translateY(-2px);
+}
+#loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none; 
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--primary) ;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 
